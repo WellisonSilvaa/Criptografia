@@ -10,6 +10,10 @@
 <body>
     <input type="file" onchange="loadFile(this.files[0])">
     <br>
+    <div>
+    <input type="button" value="Criptografar" onclick="criptografar()">
+    <input type="button" value="Descriptografar" onclick="descriptografar()">
+    </div>
     <pre id="output"></pre>
 
     
@@ -17,6 +21,9 @@
         
         
         <input type="button" value="Gerar" onclick="salvar()">
+        <br>
+        <br>
+        <input type="button" value="Limpar" onclick="limpar()">
         
         
    

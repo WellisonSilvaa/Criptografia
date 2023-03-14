@@ -15,9 +15,16 @@ var texto = [];
 var titulo = "";
 
 async function loadFile(file) {
-  texto = await file.text();
+  this.texto = await file.text();
+  console.log(texto)
   titulo = file.name;
 
+  
+
+}
+
+function criptografar() {
+  loadFile()
   let letra;
   let alfabetoLetra;
   let position;
@@ -44,12 +51,46 @@ async function loadFile(file) {
   this.texto = [];
   this.res = this.mostrar;
   this.texto = this.res;
-  console.log(this.mostrar);
+  // console.log(this.mostrar);
   document.getElementById('output').textContent = this.res;
- console.log(res);
- console.log(titulo);
-
+  console.log(res);
+  console.log(titulo);
+  
 }
+
+function descriptografar() {
+  loadFile()
+    let letra;
+    let alfabetoLetraCrip;
+    let position;
+    let subst;
+    // console.log(this.texto[2]);
+    for(let i = 0; i < this.texto.length; i++) {
+      letra = this.texto[i];
+      for (let j = 0; j < this.alfabetoCrip.length; j++) {
+        alfabetoLetraCrip = this.alfabetoCrip[j];
+        if(letra == alfabetoLetraCrip) {
+          position = j;
+          subst = this.alfabeto[j];
+          
+          this.texto2.push(subst);
+          this.mostrar += this.texto2[i]; 
+
+        }
+        
+      }
+    }
+    this.mostrar += ' ';
+    // console.log(this.texto2);
+    this.texto2 = [];
+    this.texto = [];
+    this.res = this.mostrar;
+    this.texto = this.res;
+    console.log(this.mostrar);
+    
+    console.log(res);
+    console.log(titulo);
+  }
 
 function salvar() {
 
@@ -60,5 +101,13 @@ function salvar() {
     let blob = new Blob([texto], { type: "text/plain;charset=utf-8" });
 
     saveAs(blob, titulos + ".txt");
+
+ }
+
+function limpar() {
+texto = []
+texto2 = []
+res = ""
+mostrar = ""
 
  }
