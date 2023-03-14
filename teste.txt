@@ -1,1 +1,1 @@
-Ola, bom dia a todos, teste de escrita no Criptografador.
+ola, bom dia a todos, teste de escrita no criptografador.
