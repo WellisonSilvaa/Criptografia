@@ -11,8 +11,26 @@ var ch = '';
 var pos = 0;
 var subst = 0;
 letraSub = "";
-var lista = document.getElementById('list')
+var lista = document.getElementById('list');
 
+document.getElementById("botao").disabled = true;
+ 
+addEventListener(function(event) {
+    
+  //busca conteúdo do input
+    var conteudo = this.mostrar;
+  
+    //valida conteudo do input 
+    if (conteudo !== null && conteudo !== '') {
+      //habilita o botão
+      document.getElementById("botao").disabled = false;
+    } else {
+      //desabilita o botão se o conteúdo do input ficar em branco
+      document.getElementById("botao").disabled = true;
+    }
+});
+
+//-----------//--------------//
 async function loadFile(file) {
   this.texto = await file.text();
   console.log(texto)
@@ -20,6 +38,7 @@ async function loadFile(file) {
 
 }
 
+ ///-------------////--------------
 function criptografar() {
   loadFile()
   let letra;
@@ -41,13 +60,10 @@ function criptografar() {
     // console.log(this.mostrar);
   }
   this.res = this.mostrar;
-  console.log(this.res);
-  // document.getElementById('output').textContent = this.res;
-  console.log('Palavra Criptografada ASCII = ', this.res);
+  this.mostrar;
 
-  lista = document.getElementById('list')
-  lista.innerHTML = this.res;
-  
+  window.alert("Arquivo Criptografado com sucesso!");
+  document.getElementById("botao").disabled = false;
 }
 
 
@@ -78,16 +94,15 @@ function descriptografar() {
   }
 
   this.res = this.mostrar;
-  console.log(this.res);
-  // document.getElementById('output').textContent = this.res;
-  console.log('Palavra Criptografada ASCII = ', this.res);
+  this.mostrar;
 
-  lista = document.getElementById('list')
-  lista.innerHTML = this.res;
+  window.alert("Arquivo descriptografado com sucesso!");
+  document.getElementById("botao").disabled = false;
 
   }
 
-function salvar() {
+function gerar() {
+  
 
     let texto = this.res;
 
@@ -98,6 +113,7 @@ function salvar() {
     saveAs(blob, titulos);
 
     limpar();
+    document.getElementById("botao").disabled = true;
 
  }
 
@@ -112,7 +128,8 @@ function limpar() {
   pos = 0;
   subst = 0;
   letraSub = "";
-  lista.innerHTML = this.res;
+  input = "";
+  document.getElementById("botao").disabled = true;
 
  }
 

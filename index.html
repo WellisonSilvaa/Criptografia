@@ -10,18 +10,21 @@
 <body>
     <div class="container">
         <div class="card-arquivo">
-            <label class="arquivo" for="arquivo">Escolha o Aquivo </label>
+            <label class="buttons arquivo" for="arquivo">Escolha o Arquivo </label>
             <input type="file"  id="arquivo" onchange="loadFile(this.files[0])">
         </div>
         <div  class="card-buttons">
-        <input type="button" class="criptografar" value="Criptografar" onclick="criptografar()">
-        <input type="button" class="descriptografar" value="Descriptografar" onclick="descriptografar()">
+        <input type="button" class="buttons criptografar" value="Criptografar" onclick="criptografar()">
+        <input type="button" class="buttons descriptografar" value="Descriptografar" onclick="descriptografar()">
         </div>
 
-        <input type="button" value="Gerar" onclick="salvar()">
-        <br>
-        <br>
-        <input type="button" value="Limpar" onclick="limpar()">
+        <div class="card-buttons2">
+        <input type="button" id="botao" class="buttons gerar" value="Gerar novo arquivo" onclick="gerar()">
+
+        <input type="button" class="buttons limpar" value="Limpar" onclick="limpar()">
+        </div>
+
+        
 
     </div>
         
