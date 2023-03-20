@@ -25,6 +25,7 @@ function criptografar() {
   let letra;
   let position = 0;
 
+
   for(let i = 0; i < this.texto.length; i++) {
     letra = this.texto[i];
     console.log(letra)
@@ -39,7 +40,6 @@ function criptografar() {
     this.mostrar += this.texto2[i];
     // console.log(this.mostrar);
   }
-
   this.res = this.mostrar;
   console.log(this.res);
   // document.getElementById('output').textContent = this.res;
@@ -84,6 +84,7 @@ function descriptografar() {
 
   lista = document.getElementById('list')
   lista.innerHTML = this.res;
+
   }
 
 function salvar() {
@@ -95,6 +96,8 @@ function salvar() {
     let blob = new Blob([texto], { type: "text/plain;charset=utf-8" });
 
     saveAs(blob, titulos);
+
+    limpar();
 
  }
 
