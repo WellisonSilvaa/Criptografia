@@ -104,6 +104,11 @@ input[type="file"] {
     transform: scale(1.05);
 }
 
+textarea {
+    width: 400px;
+    height: 400px;
+}
+
 
 
 
